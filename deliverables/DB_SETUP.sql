@@ -29,11 +29,17 @@ CREATE TABLE IF NOT EXISTS amenity(
 );
 
 CREATE TABLE IF NOT EXISTS meeting (
+	meetingID int PRIMARY KEY AUTO_INCREMENT,
     roomID INT,
     managerID INT,
     startTime DATETIME, 	-- DATE TIME -- YYYY-MM-DD HH:MI:SSproduct
     endTime DATETIME,	-- DATE TIME -- YYYY-MM-DD HH:MI:SS
     costOfMeeting INT NOT NULL,
     descrip VARCHAR(255) NOT NULL -- {pro:0,wifi:0,con:0,white:0,water:0,tv:0,coff:0} 
+);
+
+CREATE TABLE IF NOT EXISTS mapMeetingUser(
+	empID int,
+    meetingID int
 );
 
