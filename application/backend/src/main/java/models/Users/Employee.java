@@ -1,4 +1,4 @@
-package models.Users;
+package models.users;
 
 
 public abstract class Employee {

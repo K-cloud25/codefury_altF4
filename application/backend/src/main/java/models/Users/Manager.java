@@ -1,4 +1,4 @@
-package models.Users;
+package models.users;
 
 public class Manager extends Employee{
 
