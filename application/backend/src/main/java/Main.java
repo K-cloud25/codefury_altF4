@@ -1,10 +1,8 @@
-import util.singleton.Log;
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) {
-
-        Log.writeToLog("HELLO WORLD2");
+    public static void main(String[] args){
 
     }
 

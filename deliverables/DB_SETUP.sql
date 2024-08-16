@@ -1,6 +1,12 @@
+-- User Setup
+CREATE USER 'havenuser' IDENTIFIED BY 'rootpwd';
+
 -- Database Setup
 CREATE DATABASE IF NOT EXISTS havenhive;
 USE havenhive;
+
+-- Privilage Access
+GRANT ALL PRIVILEGES ON havenhive.* TO 'havenuser' WITH GRANT OPTION; 
 
 -- Employee Table
 CREATE TABLE IF NOT EXISTS employee (
