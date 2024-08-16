@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+// Connection Provider Class : SPR -> Manager MySQL connection
+// Implements AutoCloseable, Closeable so that resource can be used inside a try catch block
+
+
 public class DatabaseConnector {
 
     private final static String connectionUrl = "jdbc:mysql://localhost:3306/havenhive";
@@ -25,7 +29,6 @@ public class DatabaseConnector {
                 cnx = DriverManager.getConnection( connectionUrl , "havenuser", "rootpwd");
 
             } catch (SQLException e) {
-                System.err.println("Error Occurred during Connection establishment \n Connection not Established");
                 Log.writeToError(e.getMessage() + " " + e.getErrorCode());
             }
 
@@ -44,7 +47,6 @@ public class DatabaseConnector {
                 cnx = null;
 
             } catch (SQLException e) {
-                System.err.println("Error Occurred during Connection establishment \n Connection not Established");
                 Log.writeToError(e.getMessage() + " " + e.getErrorCode());
             }
 
