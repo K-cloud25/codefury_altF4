@@ -127,7 +127,7 @@ html {
 
 .image-content {
     flex: 1;
-    background-image: url('Room.jpg');
+    background-image: url('../jpg/Room.jpg');
     background-size: cover;
     background-position: center;
     height: calc(100vh - 90px);
