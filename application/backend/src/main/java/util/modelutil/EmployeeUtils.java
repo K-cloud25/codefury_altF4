@@ -1,5 +1,6 @@
 package util.modelutil;
 
+import exceptions.ValidationFailedException;
 import models.users.Employee;
 
 public class EmployeeUtils {
@@ -27,6 +28,21 @@ public class EmployeeUtils {
             case "member" -> 3;
             default -> -1;
         };
+    }
+
+    // Returns boolean value if Employee Info is Same
+    public static boolean isValidEmployee( Employee frontendEmp, Employee backendEmp ) throws ValidationFailedException {
+
+        if ( ( frontendEmp.getEmpID() == backendEmp.getEmpID() ) &&
+                ( frontendEmp.getEmployeeType() == backendEmp.getEmployeeType() ) &&
+                ( frontendEmp.getEmpName().equals( backendEmp.getEmpName() ) ) &&
+                ( frontendEmp.getEmail().equals( backendEmp.getEmail() ) ) &&
+                ( frontendEmp.getPasswd().equals( backendEmp.getPasswd() ) )){
+            return true;
+        }
+
+        throw new ValidationFailedException("Employee Details Do Not Match");
+
     }
 
 }
