@@ -17,15 +17,15 @@ public class Admin extends Employee{
 //----------------------------------------------------------------------------------------------------------------------
     //Functions to be implemented for the Admin :
 
-    //1.Create Rooms
+    //1.Create Meeting rooms
        //Details to be inserted to the room Table of the DB
-           //RoomID,RoomType,SeatingCapacity (option -Amenities)
+           //RoomID,RoomType,SeatingCapacity
 
 //----------------------------------------------------------------------------------------------------------------------
     //2.Edit Meeting rooms configuration
       //Details to be updated to the room Table of the DB
           //RoomID,NewRoomType,NewSeatingCapacity
 
-    //3. Fetch the fresh Details of the Room from the room TABLE IN DB.
+    //3. Refresh Local List - Fetch the fresh Details of the Room from the room TABLE IN DB.
           //Update the list of rooms in the Dao after any specific changes.
 }
