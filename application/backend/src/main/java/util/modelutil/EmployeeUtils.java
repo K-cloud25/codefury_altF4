@@ -1,6 +1,6 @@
 package util.modelutil;
 
-import models.users.Employee;
+import models.Users.Employee;
 
 public class EmployeeUtils {
 
