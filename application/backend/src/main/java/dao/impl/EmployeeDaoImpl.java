@@ -98,4 +98,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public List<Employee> getAllEmployees() {
         return List.of();
     }
+
+    @Override
+    public boolean verifyUserCredentials(String empName, String password) {
+        return false;
+    }
 }

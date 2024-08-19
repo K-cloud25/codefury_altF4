@@ -13,4 +13,5 @@ public interface EmployeeDao {
     public void removeUser(int empId);
     public boolean doesEmpExists(int empId);
     public List<Employee> getAllEmployees();
+    public boolean verifyUserCredentials(String empName,String password);
 }

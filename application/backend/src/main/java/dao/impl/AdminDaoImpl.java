@@ -1,11 +1,13 @@
 package dao.impl;
 
 import dao.interfaces.AdminDao;
+import models.Users.Admin;
 import util.singleton.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 public class AdminDaoImpl implements AdminDao{
     @Override
@@ -28,59 +30,23 @@ public class AdminDaoImpl implements AdminDao{
 
     }
 
-
     @Override
-    public void addRoom(String roomType , int seatingCapacity) {
-   //input : roomId(auto increment , type , seatingCapacity)
-        try (Connection connection = DatabaseConnector.getConnection();
-
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO Room (roomType,seatingCapacity) VALUES (?, ?)")) {
-
-            preparedStatement.setString(1,roomType);
-            preparedStatement.setInt(2, seatingCapacity);
-
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException();
-        }
-
+    public boolean verifyAdmin(int empID) {
+        //based on the input ret. true or false if the user is admin or not.
+        return false;
     }
 
     @Override
-    public void modifyRoom(int roomId, String roomType, int seatingCapacity) {
-        // Input: roomId, roomType, seatingCapacity
-        // Functionality: Update room information based on roomId
+    public List<Admin> getAllAdmins() {
 
-        try (Connection connection = DatabaseConnector.getConnection();
-
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "UPDATE Room SET roomType = ?, seatingCapacity = ? WHERE roomId = ?")) {
-
-            // Set the roomType and seatingCapacity parameters in the prepared statement
-            preparedStatement.setString(1, roomType);
-            preparedStatement.setInt(2, seatingCapacity);
-            preparedStatement.setInt(3, roomId);
-
-            // Execute the update statement
-            int rowsAffected = preparedStatement.executeUpdate();
-
-            if (rowsAffected == 0) {
-                // If no rows were affected, the roomId does not exist
-                throw new RuntimeException("Room with ID " + roomId + " does not exist.");
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error occurred while modifying the room", e);
-        }
+        //returns a list of all the admins..
+        return null;
     }
-
 
     @Override
-    public void importUser() {
-
-       
-
-
+    public boolean verifyAdminCredentials(String empName, String password) {
+        return false;
     }
+
+
 }

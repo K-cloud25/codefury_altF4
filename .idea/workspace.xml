@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="25de592c-a9d4-4ff0-a481-346cdb4615cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/dao/interface/del.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/models/Users/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/util/modelutil/EmployeeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/util/modelutil/EmployeeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/dao/impl/AdminDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/dao/impl/AdminDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/dao/impl/EmployeeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/dao/impl/EmployeeDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/dao/interfaces/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/dao/interfaces/AdminDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/backend/src/main/java/dao/interfaces/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/backend/src/main/java/dao/interfaces/EmployeeDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
