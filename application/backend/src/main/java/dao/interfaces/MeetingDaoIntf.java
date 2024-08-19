@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import models.entities.Amenity;
 import models.entities.Meeting;

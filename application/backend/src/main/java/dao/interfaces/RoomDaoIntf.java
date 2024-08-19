@@ -1,5 +1,5 @@
 
-package dao;
+package dao.interfaces;
 
 import models.entities.Room;
 

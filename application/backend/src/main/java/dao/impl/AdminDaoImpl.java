@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.interfaces.AdminDao;
-import models.Users.Admin;
+import models.users.Admin;
 import util.singleton.DatabaseConnector;
 
 import java.sql.Connection;

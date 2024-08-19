@@ -2,10 +2,10 @@ package dao.impl;
 
 import dao.interfaces.EmployeeDao;
 import exceptions.EntityNotFoundException;
-import models.Users.Admin;
-import models.Users.Employee;
-import models.Users.Manager;
-import models.Users.Member;
+import models.users.Admin;
+import models.users.Employee;
+import models.users.Manager;
+import models.users.Member;
 import util.singleton.DatabaseConnector;
 
 import java.sql.Connection;
