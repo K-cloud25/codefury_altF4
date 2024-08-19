@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../assets/css/LoginStyles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h3><span class="lightblack-highlight">Haven</span><span class="grey-highlight"> Hive</span></h3>
+    </nav>
+
+    <div class="login-container">
+        <!-- <div class="logo">
+            <img src="your-logo.png" alt="Logo">
+        </div> -->
+        <h1>Login</h1>
+        <p>Select your user type to continue</p>
+        
+        <div class="button-group">
+            <input type="radio" id="member" name="user-type" value="Member" hidden>
+            <label for="member" class="radio-button">Member</label>
+            
+            <input type="radio" id="admin" name="user-type" value="Admin" hidden>
+            <label for="admin" class="radio-button">Admin</label>
+            
+            <input type="radio" id="manager" name="user-type" value="Manager" hidden>
+            <label for="manager" class="radio-button">Manager</label>
+        </div>
+        
+        <div class="divider">
+            <!-- <span>OR CONTINUE WITH</span> -->
+        </div>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="m@example.com" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" required>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    <script src="../assets/js/login.js"></script>
+</body>
+</html>
