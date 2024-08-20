@@ -2,12 +2,12 @@ package models.entities;
 
 public class Amenity {
     private String name;
-    private double costPerHour;
+    private int costPerHour;
 
     public Amenity() {
     }
 
-    public Amenity(String name, double costPerHour) {
+    public Amenity(String name, int costPerHour) {
         this.name = name;
         this.costPerHour = costPerHour;
     }
@@ -20,11 +20,11 @@ public class Amenity {
         this.name = name;
     }
 
-    public double getCostPerHour() {
+    public int getCostPerHour() {
         return costPerHour;
     }
 
-    public void setCostPerHour(double costPerHour) {
+    public void setCostPerHour(int costPerHour) {
         this.costPerHour = costPerHour;
     }
 
