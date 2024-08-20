@@ -7,6 +7,7 @@ import models.users.Employee;
 import models.users.Manager;
 import models.users.Member;
 import util.singleton.DatabaseConnector;
+import util.singleton.Log;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
     @Override
-    public int getUserType(Employee Obj) {
+    public int verifyUserType(Employee Obj) {
 
         if(Obj instanceof Admin)
             return 1;
@@ -32,14 +33,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public int getUserType(int empId) {
         try (Connection connection =DatabaseConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT * FROM Users WHERE UserID = ?")) {
+                     "SELECT * FROM employee WHERE UserID = ?")) {
 
             preparedStatement.setInt(1, empId);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
 
-                   int type=resultSet.getInt("empId");
+                   int type=resultSet.getInt("empType");
                 }
             }
         } catch (SQLException e) {
@@ -54,7 +55,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         try (Connection connection = DatabaseConnector.getConnection();
 
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO Users (Name, Email, Phone, Credits, Role) VALUES (?, ?, ?, ?, ?)")) {
+                     "INSERT INTO employee (Name, Email, Phone, Credits, Role) VALUES (?, ?, ?, ?, ?)")) {
 
             preparedStatement.setString(1,empName);
             preparedStatement.setString(2, email);
@@ -73,7 +74,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public void removeUser(int empId) {
         try (Connection connection = DatabaseConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "DELETE FROM Employee WHERE UserID = ?")) {
+                     "DELETE FROM employee WHERE UserID = ?")) {
 
             preparedStatement.setInt(1, empId);
 
@@ -102,5 +103,53 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public boolean verifyUserCredentials(String empName, String password) {
         return false;
+    }
+
+    @Override
+    public Employee getEmployee(int empId) throws EntityNotFoundException{
+
+        try (Connection connection =DatabaseConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT * FROM employee WHERE empID = ?")) {
+
+            preparedStatement.setInt(1, empId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+
+                    int empID=resultSet.getInt("empId");
+                    String empName = resultSet.getString("empName");
+                    String email = resultSet.getString("email");
+                    String phone = resultSet.getString("phone");
+                    int empType = resultSet.getInt("empType");
+                    String passwd = resultSet.getString("passwd");
+
+                    switch (empType){
+                        case 1:
+                            return new Admin(empID, empName, email, phone, 1, passwd);
+
+                        case 2:
+
+                                PreparedStatement ps = connection.prepareStatement(
+                                        "SELECT creditVal FROM credit WHERE empID = ?"
+                                );
+                                ps.setInt(1, empID);
+                                ResultSet creditScoreSet = ps.executeQuery();
+
+                                return new Manager(empID, empName, email, phone, 2, passwd, creditScoreSet.getInt(1));
+                        case 3:
+                            return new Member(empID, empName, email, phone, 3, passwd);
+                        default:
+                            throw new IllegalArgumentException("Type of Employee Unkown");
+                    }
+
+                }
+            }
+        } catch (SQLException e) {
+            Log.writeToError("Error fetching user by ID :" +  e.getMessage());
+        }
+
+        throw new EntityNotFoundException("User not found");
+
     }
 }

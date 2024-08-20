@@ -1,5 +1,6 @@
 package dao.interfaces;
 
+import exceptions.EntityNotFoundException;
 import models.users.Employee;
 
 import java.util.List;
@@ -7,11 +8,13 @@ import java.util.List;
 public interface EmployeeDao {
 
 
-    public int getUserType(Employee Obj);
+    public int verifyUserType(Employee Obj);
     public int getUserType(int empId);
-    public  void createUser(int empID, String empName, String email, String phone, int empType, String passwd);
+    public int createUser(int empID, String empName, String email, String phone, int empType, String passwd);
     public void removeUser(int empId);
     public boolean doesEmpExists(int empId);
     public List<Employee> getAllEmployees();
     public boolean verifyUserCredentials(String empName,String password);
+
+    public Employee getEmployee(int empId) throws EntityNotFoundException;
 }
