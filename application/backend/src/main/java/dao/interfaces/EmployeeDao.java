@@ -14,7 +14,7 @@ public interface EmployeeDao {
     public void removeUser(int empId);
     public boolean doesEmpExists(int empId);
     public List<Employee> getAllEmployees();
-    public boolean verifyUserCredentials(String empName,String password);
+    public boolean verifyUserCredentials(int empID, int requiredCredential,String empName,String password) throws EntityNotFoundException;
 
     public Employee getEmployee(int empId) throws EntityNotFoundException;
 }

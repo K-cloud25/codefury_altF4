@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 public class ServiceHandler {
 
     private EmployeeDao employeeDao;
-    private AdminDao adminDao;
     private MeetingDaoIntf meetingDao;
     private RoomDaoIntf roomDao;
 
@@ -34,7 +33,6 @@ public class ServiceHandler {
     public ServiceHandler(){
 
         employeeDao = EmployeeFactory.getEmployeeDao();
-        adminDao = AdminFactory.getAdminDao();
         meetingDao = MeetingFactory.getMeetingDao();
         roomDao = RoomFactory.getRoomDao();
 
@@ -60,22 +58,15 @@ public class ServiceHandler {
     }
 
     // Function Check If User Is of Type Admin
-    private boolean validateAdminUser(Employee user){
+    private boolean validateEmployee(Employee user, int requiredCredentials){
         // Verify If Employee is of type Admin
-        if ( employeeDao.verifyUserType(user) != 1 ){
-            Log.writeToError("Access Denied: User does not have privilege of adding a room");
-            Log.writeToLog("User : " + user+ " tried to access unauthorized method Add Room" );
-            return false;
-        }
-
-        // Verify Admin User
-        if ( !(
-                adminDao.verifyAdmin(user.getEmpID())
-                        &&
-                        adminDao.verifyAdminCredentials(user.getEmpName(), user.getPasswd())
-        ) ){
-            Log.writeToError("Access Denied: User does not have privilege of adding a room");
-            Log.writeToLog("User : " + user+ " tried to access unauthorized method with invalid Entry Add Room" );
+        try {
+            if ( !employeeDao.verifyUserCredentials( user.getEmpID(), requiredCredentials, user.getEmpName(), user.getPasswd()) ){
+                Log.writeToError("Access Denied: User does not have privilege of adding a room");
+                Log.writeToLog("User : " + user+ " tried to access unauthorized method Add Room" );
+                return false;
+            }
+        } catch (EntityNotFoundException e) {
             return false;
         }
 
@@ -111,7 +102,7 @@ public class ServiceHandler {
     // Admin : Add Room
     public Room addRoom(Employee registeringEmp, String roomType, int seatingCapacity, List<Amenity> adminSetAmenities){
 
-        if ( ! validateAdminUser(registeringEmp) ){
+        if ( validateEmployee(registeringEmp, 1) ){
             return null;
         }
 
@@ -133,7 +124,7 @@ public class ServiceHandler {
     public Employee addEmployee(Employee registeringEmp, Employee newEmployeeObj){
 
         // Admin Level Validation
-        if (! validateAdminUser(registeringEmp) ){
+        if ( validateEmployee(registeringEmp, 1) ){
             return null;
         }
 
@@ -161,7 +152,7 @@ public class ServiceHandler {
     // Admin : Update user
     public Room updateRoom(Employee registeringEmp, Room room){
 
-        if (!  validateAdminUser(registeringEmp) ){
+        if ( validateEmployee(registeringEmp, 1) ){
             return null;
         }
 
@@ -195,14 +186,11 @@ public class ServiceHandler {
     public List<Room> getAvailableRooms(Employee requestingEmployee, List<LocalDateTime> rangeOfTime){
 
         // Verify If Employee is of Type Member
-        if ( employeeDao.verifyUserType(requestingEmployee) != 2 ){
-            Log.writeToLog("Unauthenticated User " + requestingEmployee +" trying to access restricted resource");
+        if ( validateEmployee(requestingEmployee, 2) ){
             return null;
         }
 
-        List<Room> freeRooms = new ArrayList<Room>();
-        freeRooms = roomDao.getRoomsAvailable(rangeOfTime.get(0), rangeOfTime.get(1));
-
+        List<Room> freeRooms = roomDao.getRoomsAvailable(rangeOfTime.get(0), rangeOfTime.get(1));
         return freeRooms;
     }
 
@@ -216,8 +204,7 @@ public class ServiceHandler {
     ){
 
         // Verify If Employee is of Type Member
-        if ( employeeDao.verifyUserType(requestEmployee) != 2 ){
-            Log.writeToLog("Unauthenticated User " + requestEmployee +" trying to access restricted resource");
+        if ( validateEmployee(requestEmployee, 2) ){
             return null;
         }
 
@@ -277,7 +264,7 @@ public class ServiceHandler {
             Log.writeToError("MySQL error : " + e.getMessage() );
         }
 
-
+        return null;
     }
 
     // Member : GetMyRooms
@@ -285,10 +272,7 @@ public class ServiceHandler {
     public List<Meeting> getMeetings( Employee member ){
 
         // Validate user
-        try{
-            Employee backEndEmployee = employeeDao.getEmployee(member.getEmpID());
-        } catch (EntityNotFoundException e) {
-            Log.writeToLog("Non Registered User Tried to Access Method : " + e.getMessage());
+        if (validateEmployee(member, 3)){
             return null;
         }
 
@@ -298,7 +282,6 @@ public class ServiceHandler {
 
     public void closeService(){
         employeeDao = null;
-        adminDao = null;
         meetingDao = null;
         roomDao = null;
         cnx = null;

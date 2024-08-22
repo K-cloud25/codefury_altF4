@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AdminDaoImpl implements AdminDao{
     @Override
-    public void addUser(int empID, String empName, String email, String phone, int empType, String passwd) {
+    public int addUser(int empID, String empName, String email, String phone, int empType, String passwd) {
         try (Connection connection = DatabaseConnector.getConnection();
 
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -27,7 +27,7 @@ public class AdminDaoImpl implements AdminDao{
         } catch (SQLException e) {
             throw new RuntimeException();
         }
-
+        return -1;
     }
 
     @Override

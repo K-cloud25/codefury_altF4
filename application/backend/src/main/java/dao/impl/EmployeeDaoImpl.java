@@ -9,6 +9,7 @@ import models.users.Member;
 import util.singleton.DatabaseConnector;
 import util.singleton.Log;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +52,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public void createUser(int empID, String empName, String email, String phone, int empType, String passwd) {
+    public int createUser(int empID, String empName, String email, String phone, int empType, String passwd) {
         try (Connection connection = DatabaseConnector.getConnection();
 
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -67,7 +68,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (SQLException e) {
             throw new RuntimeException();
         }
-
+        return -1;
     }
 
     @Override
@@ -100,9 +101,35 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return List.of();
     }
 
+    // Method Checks The required Credentials with the DB and return respective result
     @Override
-    public boolean verifyUserCredentials(String empName, String password) {
-        return false;
+    public boolean verifyUserCredentials(int empId,int requiredCredential, String empName, String password)
+    throws EntityNotFoundException{
+
+        Connection cnx = DatabaseConnector.getConnection();
+        String query = "SELECT * FROM employee WHERE empID = ?";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(query);
+            preparedStatement.setInt(1, empId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if ( resultSet.next() ){
+
+                int employeeType=resultSet.getInt("empType");
+                String employeeName=resultSet.getString("empName");
+
+                return employeeType == requiredCredential && empName.equals(employeeName);
+
+
+            }else{
+                throw new EntityNotFoundException("No Such User");
+            }
+
+        } catch (SQLException | EntityNotFoundException e) {
+            throw new EntityNotFoundException("No Such User");
+        }
+
     }
 
     @Override
