@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize Meeting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect for font loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect for font loading -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=New+Amsterdam&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
+            rel="stylesheet"> <!-- Link to Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="../assets/css/organize-meeting.css">
+</head>
+<body>
+<nav class="navbar">
+    <!--    <h3><span class="lightblack-highlight">Haven Hive</span></h3>-->
+    <h3><span class="lightblack-highlight">Haven </span><span class="grey-highlight">Hive</span></h3>
+
+    <ul class="nav-links">
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/login.html">Log Out</a></li>
+    </ul>
+</nav>
+
+<section class="container">
+    <h2>Organize Meeting</h2>
+    <form id="meetingForm">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" required>
+        </div>
+        <div class="form-group">
+            <label for="meetingDate">Meeting Date:</label>
+            <input type="date" class="form-control" id="meetingDate" required>
+        </div>
+        <div class="form-group">
+            <label for="startTime">Start Time:</label>
+            <input type="time" class="form-control" id="startTime" required>
+        </div>
+        <div class="form-group">
+            <label for="duration">Duration (in hours):</label>
+            <input type="number" class="form-control" id="duration" required>
+        </div>
+        <div class="form-group">
+            <label for="meetingType">Meeting Type:</label>
+            <select class="form-control" id="meetingType" required>
+                <option value="classroom">Classroom Training</option>
+                <option value="online">Online Training</option>
+                <option value="business">Business</option>
+                <option value="conference">Conference call facility</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="members">Add Members:</label>
+            <input type="text" class="form-control" id="memberName" placeholder="Name">
+            <input type="text" class="form-control" id="memberEmail" placeholder="Email">
+            <button type="button" class="btn" id="addMemberBtn">Add Member</button>
+        </div>
+        <div class="form-group">
+            <label for="meetingRoom">Select Meeting Room:</label>
+            <select id="meetingRoom" class="form-control">
+                <!-- Options will be populated dynamically -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="managerCredits">Manager Credits:</label>
+            <input type="number" class="form-control" id="managerCredits" required>
+        </div>
+        <button type="button" class="btn" id="saveMeetingBtn">Save</button>
+        <button type="button" class="btn btn-secondary" id="cancelMeetingBtn">Cancel</button>
+    </form>
+</section>
+<!-- Footer -->
+<footer>
+    <div class="center">
+        <h2 class="h-fourth">Email us at: havenhive-support@gmail.com</h2>
+        <h2 class="h-fourth">Call us at: +91 99999-XXXXX</h2>
+        <h2 class="h-fourth">Copyright &copy; www.havenhive.com. All rights reserved.</h2>
+    </div>
+</footer>
+
+<script src="../assets/js/organize-meeting.js"></script>
+</body>
+</html>
