@@ -29,6 +29,17 @@ public class Meeting {
         this.description = description;
     }
 
+    public Meeting(int meetingID, int roomID, int managerID, LocalDateTime startTime, LocalDateTime endTime, int costOfMeeting, String description) {
+        this.meetingID = meetingID;
+        this.roomID = roomID;
+        this.managerID = managerID;
+        //parse startTime and endTime and convert into  "yyyy-MM-dd HH:mm:ss" format
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.costOfMeeting = costOfMeeting;
+        this.description = description;
+    }
+
     public int getMeetingID() {
         return meetingID;
     }

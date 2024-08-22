@@ -5,7 +5,7 @@ CREATE USER 'havenuser' IDENTIFIED BY 'rootpwd';
 CREATE DATABASE IF NOT EXISTS havenhive;
 USE havenhive;
 
--- Privilage Access
+-- Privilege Access
 GRANT ALL PRIVILEGES ON havenhive.* TO 'havenuser' WITH GRANT OPTION; 
 
 -- Employee Table
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS meeting (
     startTime DATETIME, 	-- DATE TIME -- YYYY-MM-DD HH:MI:SSproduct
     endTime DATETIME,	-- DATE TIME -- YYYY-MM-DD HH:MI:SS
     costOfMeeting INT NOT NULL,
-    descrip VARCHAR(255) NOT NULL -- {pro:0,wifi:0,con:0,white:0,water:0,tv:0,coff:0} 
+    descrip VARCHAR(255) NOT NULL -- {pro:0,wifi:0,con:0,white:0,water:0,tv:0,coff:0}
 );
 
 CREATE TABLE IF NOT EXISTS mapMeetingUser(

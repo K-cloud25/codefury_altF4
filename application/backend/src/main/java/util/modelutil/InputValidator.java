@@ -58,4 +58,13 @@ public class InputValidator {
 
     }
 
+    public static boolean isValidRoomType( String roomType ) throws ValidationFailedException {
+        String tempLowerCase = roomType.toLowerCase();
+        if ( tempLowerCase.equals("classroomtraining") || tempLowerCase.equals("onlinetraining") || tempLowerCase.equals("conferencecall") || tempLowerCase.equals("business") ){
+            return true;
+        }
+
+        throw new ValidationFailedException("Invalid Room Type");
+    }
+
 }

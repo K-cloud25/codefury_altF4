@@ -1,0 +1,1 @@
+20-08-2024 PM 20:00:31:333120200 : User Employee{empID=1, empName='Admin', email='admin@gmail.com', phone='9845689754', empType=1, passwd='admin'} Logged In System
