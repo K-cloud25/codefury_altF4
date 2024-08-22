@@ -11,15 +11,15 @@ import java.util.List;
 
     public interface ManagerIntf {
 
-    public Room getRoomSlot(LocalDateTime startTime, LocalDateTime endTime) throws InsufficientCreditsException;
+    public List<Room> getRoomSlot(LocalDateTime startTime, LocalDateTime endTime);
 
     public List<models.users.Member> getMembersInSlot(LocalDateTime startTime, LocalDateTime endTime);
 
     public boolean requestRoom(int roomId, LocalDateTime startTime, LocalDateTime endTime, List<models.users.Member> members) throws InsufficientCreditsException;
 
-    public List<Meeting> checkMeeting() throws EntityNotFoundException;
+    public List<Meeting> checkMeeting(int id) throws EntityNotFoundException;
 
-    public int checkCredits();
+    public int checkCredits(int id);
 
-    public int modifyCredits(int credits);
+    public int modifyCredits(int credits, int id);
 }
