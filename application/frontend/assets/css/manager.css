@@ -1,0 +1,405 @@
+/* Global reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure body and html take up full viewport height and width, and set a background color */
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Style for the navigation bar: fixed at the top, with a background color and shadow */
+.navbar {
+    background-color: #f8f9fa;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the navigation bar heading */
+.navbar h3 {
+    font-size: 30px;
+    color: #333;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+}
+
+/* Flexbox container for navigation links */
+.nav-links {
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Style for navigation list items: removes default styling and sets margin */
+.nav-links li {
+    list-style: none;
+    font-size: 1.2rem;
+    margin-left: 20px;
+}
+
+/* Style for navigation links: padding, border-radius, and transition effects */
+.nav-links li a {
+    color: black;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.6s ease;
+}
+
+/* Hover effects for navigation links: color change and scaling */
+.nav-links li a:hover {
+    color: white;
+    background-color: black;
+    transform: scale(1.08);
+}
+
+/* Flexbox container for main content section */
+.content-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin-top: 50px;
+}
+
+/* Style for the text content area: centered content with padding and background color */
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    background-color: #f5f5f5;
+    padding-top: 60px;
+}
+
+/* Keyframes for animating the "Hello Admin" text from left to right */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the main heading */
+.text-content h1 {
+    font-size: 75px;
+    color: #333;
+    line-height: 1.2;
+    margin-left: 70px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    animation: slideIn 2.5s ease-out;
+}
+
+/* Style for paragraphs in the text content area */
+.text-content p {
+    font-size: 20px;
+    color: #666;
+    margin-top: 20px;
+    margin-left: 74px;
+    letter-spacing: 1px;
+    word-spacing: 6px;
+    line-height: 37px;
+    padding: 1px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+}
+
+/* Style for the image background section */
+.image-content {
+    flex: 1;
+    background-image: url('Employee.png');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 90px);
+    background-repeat: no-repeat;
+}
+
+/* Hide image elements within the image content section */
+.image-content img {
+    display: none;
+}
+
+/* Highlight colors for various text elements */
+.yellow-highlight {
+    color: rgb(243, 199, 2);
+}
+
+.lightblack-highlight {
+    color: #333;
+}
+
+.grey-highlight {
+    color: #666;
+}
+
+/* Style for horizontal rules */
+hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+    background-color: #ddd;
+}
+
+/* Flexbox container for function section with spacing and background color */
+.func-section {
+    margin-top: -50px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+}
+
+/* Style for individual function boxes: background color, border, shadow, and hover effects */
+.func-box {
+    flex: 1 1 35%; 
+    max-width: 35%; 
+    height: 250px; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 50px 10px; 
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effects for function boxes: background color change and elevation */
+.func-box:hover {
+    filter: grayscale(0%);
+    background-color: #d8d5d5;
+    transform: translateY(-5px);
+    transition: all 0.3s ease 0.1s;
+}
+
+/* Style for icons within function boxes */
+.func-icon {
+    font-size: 60px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style for headings within function boxes */
+.func-box h4 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+/* Style for links within function boxes */
+.func-box a {
+    text-decoration: none; 
+    color: black; 
+}
+
+/* Center text alignment utility class */
+.center {
+    text-align: center;
+}
+
+/* Styles for a link that should stretch to cover its container */
+.stretched-link {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensures the stretched link covers its entire container */
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Styles the footer with background color, text color, and padding */
+footer {
+    background: #666;
+    color: rgb(255, 255, 255);
+    padding: 22px 10px;
+    margin-top: 50px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Styles secondary headings with size and padding */
+.h-fourth {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Centers text */
+.center {
+    text-align: center;
+}
+
+/* Media queries for responsive design */
+
+/* Styles for small screens (max-width: 767px) */
+@media only screen and (max-width: 767px) {
+    .navbar {
+        padding-left: 10px;
+        height: 110px;
+        padding-right: 10px;
+    }
+
+    .navbar h3 {
+        font-size: 25px;
+    }
+
+    .content-section {
+        flex-direction: column;
+        height: auto;
+        margin-top: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .text-content {
+        padding: 20px;
+        text-align: center;
+        color: #333;
+        margin-top: 60px; 
+        padding-top: 110px; 
+    }
+
+    .text-content h1 {
+        font-size: 45px;
+        margin: 0;
+    }
+
+    .text-content p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .image-content {
+        height: 100vh;
+        background-position: center;
+    }
+
+    .func-section {
+        margin-top: 0;
+        padding: 20px;
+    }
+
+    .func-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 20px;
+        height: auto;
+    }
+
+    .func-box h4 {
+        font-size: 20px;
+    }
+
+    .func-box a {
+        font-size: 14px;
+    }
+
+    hr {
+        display: none;
+    }
+}
+
+/* Styles for medium screens (min-width: 768px and max-width: 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+        padding-left: 20px;
+        height: 100px;
+        padding-right: 20px;
+    }
+
+    .navbar h3 {
+        font-size: 35px;
+    }
+
+    .content-section {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .text-content {
+        padding: 20px;
+        text-align: center;
+        color: #333;
+        margin-top: 60px;
+    }
+
+    .text-content h1 {
+        font-size: 60px;
+        margin: 0;
+    }
+
+    .text-content p {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .image-content {
+        height: calc(50vh - 50px);
+    }
+
+    .func-section {
+        margin-top: 30px;
+    }
+
+    .func-box {
+        flex: 1 1 45%;
+        max-width: 45%;
+        margin: 10px;
+        padding: 20px;
+        height: auto;
+    }
+
+    .func-box h4 {
+        font-size: 22px;
+    }
+}
+
+/* Styles for large screens (min-width: 1025px) */
+@media only screen and (min-width: 1025px) {
+    .content-section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .image-content {
+        height: calc(100vh - 90px);
+    }
+
+    .func-box {
+        flex: 1 1 30%;
+        max-width: 30%;
+    }
+}
