@@ -20,7 +20,7 @@ public interface RoomDaoIntf {
     // NOTE : Require A getRoomWith ID
     public void updateRoom(Room room , int roomId);
     public Room getRoomWithID(int roomId) throws EntityNotFoundException;
-    public List getRoomsAvailable(LocalDateTime startTime, LocalDateTime endTime);
+    public List<Room> getRoomsAvailable(LocalDateTime startTime, LocalDateTime endTime);
     public boolean isRoomAvailable(int roomId, LocalDateTime startTime, LocalDateTime endTime);
     public int getRoomBaseCost(int roomId);
 }

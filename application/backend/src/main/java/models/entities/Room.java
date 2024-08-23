@@ -85,7 +85,6 @@ public class Room {
                     break;
         }
 
-
     }
     public double calTotalCostPerHour(){
         double totalCost = 0;
