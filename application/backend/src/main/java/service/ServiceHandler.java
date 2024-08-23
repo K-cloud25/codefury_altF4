@@ -13,8 +13,10 @@ import util.singleton.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 // Service Handler Will Interact with a UI and considers that the UI can operate on Java Based Objects.
 
@@ -24,6 +26,7 @@ public class ServiceHandler {
     private MeetingDaoIntf meetingDao;
     private RoomDaoIntf roomDao;
     private MemberIntf memberDao;
+    private ManagerIntf managerDao;
 
     Connection cnx = null;
 
@@ -33,6 +36,7 @@ public class ServiceHandler {
         meetingDao = MeetingFactory.getMeetingDao();
         roomDao = RoomFactory.getRoomDao();
         memberDao = MemberFactory.getMemberDao();
+        managerDao = ManagerFactory.getManagerDao();
     }
 
     private boolean employeeValidation( Employee frontendSentEmployee, Employee backendEmployee ){
@@ -198,11 +202,11 @@ public class ServiceHandler {
 
         // Verify If Employee is of Type Member
         if (!validateEmployee(requestingEmployee, 2) ){
+            System.out.println("Invalid");
             return null;
         }
 
-        List<Room> freeRooms = roomDao.getRoomsAvailable(rangeOfTime.get(0), rangeOfTime.get(1));
-        return freeRooms;
+        return roomDao.getRoomsAvailable(rangeOfTime.get(0), rangeOfTime.get(1));
     }
 
     // Manager : Book Room
@@ -215,7 +219,8 @@ public class ServiceHandler {
     ){
 
         // Verify If Employee is of Type Member
-        if ( validateEmployee(requestEmployee, 2) ){
+        if ( !validateEmployee(requestEmployee, 2) ){
+            Log.writeToLog("Unauthorized User tried to access user: " + requestEmployee );
             return null;
         }
 
@@ -235,9 +240,9 @@ public class ServiceHandler {
             return null;
         }
 
-        //  Get Clashing Meeting
-        if (meetingDao.isClashingMeeting(backEndEntityRoom.getRoomID(), timeSlot.get(0), timeSlot.get(1)) ){
-            Log.writeToLog("Conflict while Booking, Room already Booked");
+        //  Get Clashing Meeting or Check Room
+        if (! roomDao.isRoomAvailable(backEndEntityRoom.getRoomID(), timeSlot.get(0), timeSlot.get(1))){
+            Log.writeToLog("Conflict while Booking, Room already Booked : "+ room);
             return null;
         }
 
@@ -249,21 +254,51 @@ public class ServiceHandler {
             Log.writeToError("MySQL error : " + e.getMessage() );
         }
 
-        int baseCost = roomDao.getRoomBaseCost(room.getRoomID());
-        int addedCost = addedAmenity.stream().mapToInt(Amenity::getCostPerHour).sum();
+        int baseCostPerHour = roomDao.getRoomBaseCost(room.getRoomType());
+        int addedCostPerHour = addedAmenity.stream().mapToInt(Amenity::getCostPerHour).sum();
+
+        long amounntOfTimeForBooking = Duration.between(timeSlot.get(0), timeSlot.get(1)).toHours();
+        int costOfMeeting = (int) ((addedCostPerHour + baseCostPerHour) *amounntOfTimeForBooking);
+
+        Log.writeToLog(baseCostPerHour+ " " + addedCostPerHour + " " + amounntOfTimeForBooking + " " + costOfMeeting);
 
         // Setting dummy Meeting
-        Meeting newMeeting = new Meeting(-1, room.getRoomID(), requestEmployee.getEmpID(), timeSlot.get(0),timeSlot.get(1), baseCost+addedCost, "Meeting Booked By : " +requestEmployee.getEmpName() );
+
+        // Generating Meeting ID
+        int newMeetingID =  Integer.parseInt(String.valueOf(LocalDateTime.now().getNano()).substring(0,3) + String.valueOf(room.getRoomID()) + String.valueOf(requestEmployee.getEmpID()));
+
+        Meeting newMeeting = new Meeting(newMeetingID, room.getRoomID(), requestEmployee.getEmpID(), timeSlot.get(0),timeSlot.get(1), costOfMeeting, "Meeting Booked By : " +requestEmployee.getEmpName() + " Extra Amentites : " + addedAmenity.stream().map(e->e.getName()).collect(Collectors.joining(",")) );
 
         // Debit Credits
+        int availableCredits = managerDao.checkCredits(requestEmployee.getEmpID());
+
+        if( availableCredits < costOfMeeting){
+
+            Log.writeToError("Invalid Credits");
+            Log.writeToLog("Manager Does not have sufficient credits");
+
+            try {
+                cnx.rollback();
+                cnx.setAutoCommit(true);
+            } catch (SQLException e) {
+                Log.writeToError("MySQL error : " + e.getMessage() );
+            }
+
+
+            return null;
+
+        }
+
         // Check Valid Amount
+
+        managerDao.modifyCredits( (availableCredits - costOfMeeting ), requestEmployee.getEmpID());
+
         // Rollback
 
         // Book Meeting
         int meetingID =  meetingDao.bookMeeting(newMeeting, requestEmployee.getEmpID(), addedAmenity);
-        newMeeting.setMeetingID(meetingID);
 
-        List<Integer> listOfEmpID = employees.stream().mapToInt(Employee::getEmpID).boxed().toList();
+        List<Integer> listOfEmpID = employees.stream().map(Employee::getEmpID).collect(Collectors.toList());
 
         meetingDao.addUsersToMeeting(meetingID, listOfEmpID);
 
@@ -275,7 +310,7 @@ public class ServiceHandler {
             Log.writeToError("MySQL error : " + e.getMessage() );
         }
 
-        return null;
+        return newMeeting;
     }
 
     // Member : GetMyRooms
@@ -306,6 +341,7 @@ public class ServiceHandler {
         meetingDao = null;
         roomDao = null;
         memberDao = null;
+        managerDao = null;
         cnx = null;
         DatabaseConnector.closeConnection();
     }

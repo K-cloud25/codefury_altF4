@@ -13,7 +13,7 @@
 2. Admin
    1. Add Room
       1. - [X] Validate User
-      2. - [ ] Validate Room Details
+      2. - [X] Validate Room Details
       3. - [X] Add to DB
       4. - [X] Return new Room ID
    2. Add User
@@ -28,16 +28,16 @@
 
 ---
 3. Manager
-   1. - [ ] Get Meeting rooms
+   1. - [X] Get Meeting rooms
       1. - [X] Validate User
-      2. - [ ] Get Range Of Rooms
-      3. - [ ] Check for empty return else print out all
-   2. - [ ] Book Meeting Room
+      2. - [X] Get Range Of Rooms
+      3. - [X] Check for empty return else print out all
+   2. - [X] Book Meeting Room
       1. - [X] Validate User
       2. - [X] Get Details
       3. - [X] Validate Booking Time
       4. - [X] Book Room and get Cost
-      5. - [ ] Debit Credits
+      5. - [X] Debit Credits
       6. - [X] Create Meeting Obj
       7. - [X] Add User to Meeting Obj
 ---

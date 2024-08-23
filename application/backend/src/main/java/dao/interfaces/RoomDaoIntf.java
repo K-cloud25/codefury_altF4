@@ -15,12 +15,9 @@ public interface RoomDaoIntf {
     // not required
     public void deleteRoom(int roomId);
 
-    // TODO: Required
-    // NOTE: Update Room Type ID was of String but Model has Int as RoomID
-    // NOTE : Require A getRoomWith ID
     public boolean updateRoom(Room room , int roomId);
     public Room getRoomWithID(int roomId) throws EntityNotFoundException;
     public List<Room> getRoomsAvailable(LocalDateTime startTime, LocalDateTime endTime);
     public boolean isRoomAvailable(int roomId, LocalDateTime startTime, LocalDateTime endTime);
-    public int getRoomBaseCost(int roomId);
+    public int getRoomBaseCost(String roomType);
 }

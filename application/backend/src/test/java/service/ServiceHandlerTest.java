@@ -12,6 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -109,6 +113,49 @@ public class ServiceHandlerTest {
         List<Meeting> listOfMeetings = serviceHandler.getMeetings(memeber);
         assertNotNull(listOfMeetings);
         assertNotEquals(0, listOfMeetings.size());
+    }
+
+    @Test
+    @DisplayName("Service Handler Test : Get Free Rooms")
+    public void testCaseH(){
+
+        // Current Date Time
+        LocalDateTime startTimeStamp = LocalDateTime.now();
+        // Current Date with time set to 3 hours ahead
+        LocalDateTime endTimeStamp = LocalDateTime.now().plusHours(3);
+
+        Manager manager = new Manager(2, "Manager", "manager@gmail.com", "9845689754", 2, "Iotseea", 2000);
+
+        List<Room> listOfRooms = serviceHandler.getAvailableRooms(manager, List.of(startTimeStamp, endTimeStamp));
+
+        assertNotNull(listOfRooms);
+        assertNotEquals(0, listOfRooms.size());
+        System.out.println(listOfRooms);
+    }
+
+    @Test
+    @DisplayName("Service Handler : BookRoom")
+    public void testCaseI(){
+
+        Manager manager = new Manager(2, "Manager", "manager@gmail.com", "9845689754", 2, "Iotseea", 2000);
+        Room room = new Room(1, "classroomtraining", 40);
+        List<LocalDateTime> timeSlot = List.of(
+                LocalDateTime.parse("23-08-2024 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                LocalDateTime.parse("23-08-2024 14:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))
+        );
+        List<Employee> listOfParticipants = List.of(
+                new Member(3, "Memeber", "memeber@gmail.com", "9845689754", 3, "memeber"),
+                new Member(7, "newMember", "newMember@gmail.com", "9083423458", 3, "asda")
+                );
+        List<Amenity> listOfAddedAmenitites = new ArrayList<Amenity>();
+        listOfAddedAmenitites.add(new Amenity("TV", 10));
+
+        Meeting bookedMeeting = serviceHandler.bookAMeeting(manager, room, timeSlot, listOfParticipants, listOfAddedAmenitites);
+
+        System.out.println(bookedMeeting);
+
+        assertNotNull(bookedMeeting);
+
     }
 
     @AfterAll

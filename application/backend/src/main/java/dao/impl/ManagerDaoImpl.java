@@ -19,58 +19,9 @@ import java.util.List;
 
 public class ManagerDaoImpl implements ManagerIntf {
 
-    Connection conn = DatabaseConnector.getConnection();
-
-    @Override
-    public List<Room> getRoomSlot(LocalDateTime startTime, LocalDateTime endTime){
-
-        String sql = "SELECT r.roomID, r.roomType, r.seatinCapacity" +
-                "FROM room r " +
-                "WHERE r.roomId NOT IN("+
-                    "SELECT m.rooID"+
-                    "FROM meeting m"+
-                    "WHERE"+
-                    "(m.startTime BETWEEN ? AND ?)"+
-                    "OR"+
-                    "(m.endTime BETWEEN ? AND ?)"+
-                    "OR"+
-                    "(? BETWEEN m.startTime AND m.endTime"+
-                    "OR"+
-                    "(? BETWEEN m.startTime AND m.endTime)";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        List<Room> rooms = new ArrayList<>();
-
-        try {
-            ps = conn.prepareStatement(sql);
-            ps.setObject(1, startTime);
-            ps.setObject(2, endTime);
-            ps.setObject(3,startTime);
-            ps.setObject(4,endTime);
-            ps.setObject(5,startTime);
-            ps.setObject(6,endTime);
-
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                int roomId = rs.getInt("roomID");
-                String roomType = rs.getString("roomType");
-                int seatinCapacity = rs.getInt("seatinCapacity");
-                rooms.add(new Room(roomId,roomType,seatinCapacity));
-            }
-        } catch (SQLException e) {
-            Log.writeToError("Failed to fetch rooms");
-            throw new RuntimeException(e);
-        }
-
-        Log.writeToLog("Available rooms successfully returned ");
-        return rooms;
-
-    }
-
     @Override
     public List<Member> getMembersInSlot(LocalDateTime startTime, LocalDateTime endTime) {
-
+        Connection conn = DatabaseConnector.getConnection();
         String sql = "SELECT * "+
                     "FROM employee e"+
                     "JOIN mapMeetingUser mmu ON e.empID = mmu.empID"+
@@ -118,13 +69,8 @@ public class ManagerDaoImpl implements ManagerIntf {
     }
 
     @Override
-    public boolean requestRoom(int roomId, LocalDateTime startTime, LocalDateTime endTime, List<Member> members) throws InsufficientCreditsException {
-        return false;
-    }
-
-    @Override
     public List<Meeting> checkMeeting(int id) throws EntityNotFoundException {
-
+        Connection conn = DatabaseConnector.getConnection();
         Log.writeToLog("Starting to fetch meetings based on manager Id "+id);
 
         PreparedStatement ps = null;
@@ -172,24 +118,24 @@ public class ManagerDaoImpl implements ManagerIntf {
 
     @Override
     public int checkCredits(int id) {
-
+        Connection conn = DatabaseConnector.getConnection();
         Log.writeToLog("Retrieving credits based on manager Id "+id);
-        String sql = "SELECT credit "
-                +"FROM credit"
-                +"WHERE empID = ?";
+        String query = "SELECT creditVal FROM credit WHERE empID = ?";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         int credits;
 
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(query);
             ps.setInt(1, id);
             rs = ps.executeQuery();
-            credits = rs.getInt("credit");
+            rs.next();
+            credits = rs.getInt("creditVal");
 
         } catch (SQLException e) {
             Log.writeToError("Error fetching credits based on id "+id);
+            Log.writeToError(" SQL ERROR " + e.getMessage() + " " + e.getSQLState());
             throw new RuntimeException(e);
         }
 
@@ -200,11 +146,13 @@ public class ManagerDaoImpl implements ManagerIntf {
 
     @Override
     public int modifyCredits(int credits, int id) {
-
+        Connection conn = DatabaseConnector.getConnection();
         Log.writeToLog("Updating credits for manager Id "+id);
-        String sql = "UPDATE credit "
-                +"SET credit = ?"
-                +"WHERE empID = ?";
+        String sql = """
+            UPDATE credit\s
+            SET creditVal = ?
+            WHERE empID = ?
+            """;
 
         PreparedStatement ps = null;
         int result;

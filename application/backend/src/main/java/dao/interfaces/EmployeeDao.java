@@ -7,12 +7,8 @@ import java.util.List;
 
 public interface EmployeeDao {
 
-
-    public int verifyUserType(Employee Obj);
-    public int getUserType(int empId);
     public int createUser(int empID, String empName, String email, String phone, int empType, String passwd);
     public void removeUser(int empId);
-    public boolean doesEmpExists(int empId);
     public List<Employee> getAllEmployees();
     public boolean verifyUserCredentials(int empID, int requiredCredential,String empName,String password) throws EntityNotFoundException;
 

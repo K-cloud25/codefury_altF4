@@ -22,7 +22,7 @@ public class MemberDaoImpl implements MemberIntf {
     * It logs error messages and throws the entity not found exception and Invalid credentials exception*/
 
     @Override
-    public List<Meeting> getMeeting(int id) throws EntityNotFoundException, InvalidCredentialsException {
+    public List<Meeting> getMeeting(int id) throws EntityNotFoundException {
 
         Log.writeToLog("Starting to fetch meetings based on employee Id");
         Connection conn = DatabaseConnector.getConnection();

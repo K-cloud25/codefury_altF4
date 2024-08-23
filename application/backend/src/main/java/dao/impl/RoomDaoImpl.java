@@ -17,24 +17,16 @@ import java.util.List;
 
 public class RoomDaoImpl implements RoomDaoIntf {
 
-    Connection conn = DatabaseConnector.getConnection();
-    PreparedStatement psRoom = null;
-    ResultSet rs = null;
-    int insertId=-1;
-    int roomID;
-    String roomType;
-    int seatingCapacity;
-    List<Amenity> amenities =null;
-    String amenityName;
-    int costPerHour;
 
-
+    private final static String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
 
     //New room created by Admin with default amenities according to RoomType
     @Override
     public int createRoom(Room room) {
         try{
-
+            Connection conn = DatabaseConnector.getConnection();
+            PreparedStatement psRoom = null;
+            int insertId = -1;
             String insertIntoRoomSql = "INSERT INTO room(RoomType,SeatingCapacity) VALUES (?,?)";
             // Set parameters for the room
             psRoom = conn.prepareStatement(insertIntoRoomSql);
@@ -72,23 +64,22 @@ public class RoomDaoImpl implements RoomDaoIntf {
     //Return details of room by its id
     @Override
     public Room getRoomDetails(int roomId) {
+
+        Connection conn = DatabaseConnector.getConnection();
+        PreparedStatement psRoom = null;
+
         try{
             Room room=null;
             String selectRoomSql = "SELECT * FROM room WHERE roomId = ?";
             psRoom =conn.prepareStatement(selectRoomSql);
             psRoom.setInt(1, roomId);
-            rs = psRoom.executeQuery();
+            ResultSet rs = psRoom.executeQuery();
 
             while (rs.next()) {
-                roomID = rs.getInt("RoomId");
-                roomType = rs.getString("RoomType");
-                seatingCapacity = rs.getInt("SeatingCapacity");
-                for (Amenity amenity : amenities){
-                    amenityName = rs.getString("AmenityName");
-                    costPerHour = rs.getInt("CostPerHour");
-                    amenities.add(new Amenity(amenityName,costPerHour));
-                }
-               return new Room(roomID,roomType,seatingCapacity,amenities);
+                int roomID = rs.getInt("RoomId");
+                String roomType = rs.getString("RoomType");
+                int seatingCapacity = rs.getInt("SeatingCapacity");
+               return new Room(roomID,roomType,seatingCapacity);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -99,23 +90,22 @@ public class RoomDaoImpl implements RoomDaoIntf {
 
     @Override
     public Room getRoomWithID(int roomId) throws EntityNotFoundException {
+        Connection conn = DatabaseConnector.getConnection();
+        PreparedStatement psRoom = null;
+
         try{
             Room room=null;
             String selectRoomSql = "SELECT * FROM room WHERE roomId = ?";
             psRoom =conn.prepareStatement(selectRoomSql);
             psRoom.setInt(1, roomId);
-            rs = psRoom.executeQuery();
+            ResultSet rs = psRoom.executeQuery();
 
             while (rs.next()) {
-                roomID = rs.getInt("RoomId");
-                roomType = rs.getString("RoomType");
-                seatingCapacity = rs.getInt("SeatingCapacity");
-//                for (Amenity amenity : amenities){
-//                    amenityName = rs.getString("AmenityName");
-//                    costPerHour = rs.getInt("CostPerHour");
-//                    amenities.add(new Amenity(amenityName,costPerHour));
-//                }
-                return new Room(roomID,roomType,seatingCapacity,amenities);
+                int roomID = rs.getInt("RoomId");
+                String roomType = rs.getString("RoomType");
+                int seatingCapacity = rs.getInt("SeatingCapacity");
+
+                return new Room(roomID,roomType,seatingCapacity);
             }
         } catch (SQLException e) {
             Log.writeToError("Error fetching room by ID :" +  e.getMessage());
@@ -126,46 +116,41 @@ public class RoomDaoImpl implements RoomDaoIntf {
     //All room available in given time range will be displayed
     @Override
     public List<Room> getRoomsAvailable(LocalDateTime startTime, LocalDateTime endTime) {
+        Connection conn = DatabaseConnector.getConnection();
+        PreparedStatement psRoom = null;
+        ArrayList<Room> roomsAvailable = new ArrayList<>();
         try{
-            List<Room> availableRooms=null;
-            String sql = "SELECT * "+
-                    "FROM employee e"+
-                    "JOIN mapMeetingUser mmu ON e.empID = mmu.empID"+
-                    "JOIN meeting m ON mmu.meetingID = m.meetingID"+
-                    "WHERE"+
-                    "(m.startTime BETWEEN ? AND ?)"+
-                    "OR"+
-                    "(m.endTime BETWEEN ? AND ?)"+
-                    "OR"+
-                    "(? BETWEEN m.startTime AND m.endTime"+
-                    "OR"+
-                    "(? BETWEEN m.startTime AND m.endTime)";
-
+            String sql =
+                    """
+                    SELECT *\s
+                    FROM room AS r
+                    WHERE r.roomID NOT IN (\s
+                        SELECT m.roomID
+                        FROM meeting AS m
+                        WHERE
+                        ( m.startTime BETWEEN ? AND ?)
+                        AND\s
+                        ( m.endTime BETWEEN ? AND ?)
+                    );
+""";
             psRoom=conn.prepareStatement(sql);
 
             psRoom.setObject(1, startTime);
             psRoom.setObject(2, endTime);
             psRoom.setObject(3, startTime);
             psRoom.setObject(4, endTime);
-            psRoom.setObject(5, startTime);
-            psRoom.setObject(6, endTime);
 
-            rs=psRoom.executeQuery();
+            ResultSet rs=psRoom.executeQuery();
             while(rs.next()){
-                roomID = rs.getInt("RoomId");
-                roomType = rs.getString("RoomType");
-                seatingCapacity = rs.getInt("SeatingCapacity");
-//                for (Amenity amenity : amenities){
-//                    amenityName = rs.getString("AmenityName");
-//                    costPerHour = rs.getInt("CostPerHour");
-//                    amenities.add(new Amenity(amenityName,costPerHour));
-//                }
-                availableRooms.add(new Room(roomID,roomType,seatingCapacity,amenities));
+                int roomID = rs.getInt("RoomId");
+                String roomType = rs.getString("RoomType");
+                int seatingCapacity = rs.getInt("SeatingCapacity");
+                roomsAvailable.add(new Room(roomID,roomType,seatingCapacity));
             }
             } catch (SQLException e) {
-            throw new RuntimeException(e);
+            Log.writeToError("Error fetching rooms available :" +  e.getMessage());
         }
-        return null;
+        return roomsAvailable;
     }
     // NOT REQUIRED
     @Override
@@ -174,20 +159,89 @@ public class RoomDaoImpl implements RoomDaoIntf {
     }
 
     @Override
-    public void updateRoom(Room room, int roomId) {
+    public boolean updateRoom(Room room, int roomId) {
 
+        Connection cnx = DatabaseConnector.getConnection();
+        PreparedStatement ps = null;
+        String query = "UPDATE room SET seatingCapacity = ? WHERE roomId = ?";
+
+        try {
+            ps = cnx.prepareStatement(query);
+            ps.setInt(1, room.getSeatingCapacity());
+            ps.setInt(2, roomId);
+
+            int updatedRows = ps.executeUpdate();
+            if ( updatedRows < 0 ){
+                return true;
+            }
+        } catch (SQLException e) {
+            Log.writeToError("SQL Error : " + e.getMessage() + " : " + e.getErrorCode() + " : " + e.getSQLState());
+        }
+
+        return false;
     }
 
 
     @Override
     public boolean isRoomAvailable(int roomId, LocalDateTime startTime, LocalDateTime endTime) {
+
+        Connection conn = DatabaseConnector.getConnection();
+        String query = """
+                SELECT
+                                	IF (
+                                		? IN (
+                                			SELECT m.roomID
+                                            FROM meeting m
+                                            WHERE
+                                				(? BETWEEN m.startTime AND m.endTime)
+                                                AND
+                                                (? BETWEEN m.startTime AND m.endTime)
+                                                AND
+                                                ? != m.startTime
+                                                AND\s
+                                                ? != m.endTime
+                                		)
+                                        , 0, 1) AS available;
+                """;
+
+        try{
+
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, roomId);
+            ps.setObject(2, startTime);
+            ps.setObject(3, endTime);
+            ps.setObject(5, startTime);
+            ps.setObject(4, endTime);
+
+            ResultSet rs = ps.executeQuery();
+            if( rs.next() ){
+                Log.writeToLog("AVIALA "+ String.valueOf(rs.getBoolean("available")));
+                Log.writeToLog("AASid " + String.valueOf(rs.getInt("available")));
+                return rs.getBoolean("available");
+            }
+
+        } catch (SQLException e) {
+            Log.writeToError("SQL Error : " + e.getMessage() + " : " + e.getErrorCode() + " : " + e.getSQLState());
+        }
+
         return false;
     }
 
     //totalCost will include seating capacity with all amenities per hour
     @Override
-    public int getRoomBaseCost(int roomId) {
-        int totalCost = 0;
-        return totalCost;
+    public int getRoomBaseCost(String roomType) {
+        return switch (roomType.toLowerCase()){
+            case "classroomtraining":
+                yield 10;
+            case "onlinetraining":
+                yield 15;
+            case "conferencecall":
+                yield 15;
+            case "business":
+                yield 5;
+            default:
+                yield 0;
+        };
+
     }
 }

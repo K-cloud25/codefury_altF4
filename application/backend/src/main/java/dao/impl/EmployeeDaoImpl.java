@@ -17,39 +17,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
-    @Override
-    public int verifyUserType(Employee Obj) {
-
-        if(Obj instanceof Admin)
-            return 1;
-        else if(Obj instanceof Manager)
-            return 2;
-        else if(Obj instanceof Member)
-            return 3;
-        else
-            return -1;
-    }
-
-    @Override
-    public int getUserType(int empId) {
-        try (Connection connection =DatabaseConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT * FROM employee WHERE UserID = ?")) {
-
-            preparedStatement.setInt(1, empId);
-
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-
-                   int type=resultSet.getInt("empType");
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching user by ID", e);
-        }
-
-        throw new IllegalArgumentException("User not found");
-    }
 
     @Override
     public int createUser(int empID, String empName, String email, String phone, int empType, String passwd) {
@@ -106,11 +73,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
             System.out.println("Error in deletion ");
         }
 
-    }
-
-    @Override
-    public boolean doesEmpExists(int empId) {
-        return false;
     }
 
     @Override
