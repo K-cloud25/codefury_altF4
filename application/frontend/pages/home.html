@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata and link to external CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven Hive - Home</title>
+    <link rel="stylesheet" href="./../assets/css/home.css"> <!-- Link to internal stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect for font loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect for font loading -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=New+Amsterdam&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
+        rel="stylesheet"> <!-- Link to Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Link to Font Awesome -->
+    <script src="../assets/js/home.js"></script>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <h3><span class="lightblack-highlight">Haven </span><span class="grey-highlight">Hive</span></h3>
+        <ul class="nav-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main page content -->
+    <div class="landing-page">
+        <div class="text-content">
+            <h1>Reserve Your <br> Meeting Room Today !</h1>
+            <p>Effective communication in large offices can be complex.<br> Booking space for meetings or
+                <span class="yellow-highlight">private<br>
+                calls should be seamless and straightforward.</span></p>
+                <button href="login.html" class="btn" id="loginBtn" onclick="handleReroute()">Login</button> <!-- Fixed the button href issue -->
+        </div>
+        <div class="image-content">
+            <img src="../assets/jpg/Room.jpg" alt="Meeting Room">
+        </div>
+    </div>
+
+    <hr> <!-- Horizontal rule for separation -->
+
+    <!-- Services section -->
+    <section id="services-container">
+        <h1 class="h-primary">Services Offered</h1>
+        <div id="services">
+            <div class="info-section">
+                <!-- Individual service boxes -->
+                <div class="info-box">
+                    <i class="fas fa-pen info-icon"></i>
+                    <h4>Classroom Training</h4>
+                    <p>Whiteboard & Projector</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-wifi info-icon"></i>
+                    <h4>Online Training</h4>
+                    <p>Wifi & Projector</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone info-icon"></i>
+                    <h4>Conference Call</h4>
+                    <p>Conference call facility</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-briefcase info-icon"></i>
+                    <h4>Business</h4>
+                    <p>Projector</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="center">
+            <h2 class="h-fourth">Email us at: havenhive-support@gmail.com</h2> 
+            <h2 class="h-fourth">Call us at: +91 99999-XXXXX</h2>
+            <h2 class="h-fourth">Copyright &copy; www.havenhive.com. All rights reserved.</h2>
+        </div>
+    </footer>
+</body>
+
+</html>

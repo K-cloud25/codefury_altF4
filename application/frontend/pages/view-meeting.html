@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Meeting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect for font loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect for font loading -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=New+Amsterdam&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
+            rel="stylesheet"> <!-- Link to Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="../assets/css/view-meeting.css">
+</head>
+<body>
+<nav class="navbar">
+    <!--    <h3><span class="lightblack-highlight">Haven Hive</span></h3>-->
+    <h3><span class="lightblack-highlight">Haven </span><span class="grey-highlight">Hive</span></h3>
+
+    <ul class="nav-links">
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/login.html">Log Out</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2 class="schedule-heading">Meeting Schedule</h2>
+    <div class="header">
+        <button id="prev-month" class="header-button">Previous</button>
+        <div id="month-year" class="header-month">August 2024</div>
+        <button id="next-month" class="header-button">Next</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+            </thead>
+            <tbody id="timetable-body">
+            <!-- Timetable data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Footer -->
+<footer>
+    <div class="center">
+        <h2 class="h-fourth">Email us at: havenhive-support@gmail.com</h2>
+        <h2 class="h-fourth">Call us at: +91 99999-XXXXX</h2>
+        <h2 class="h-fourth">Copyright &copy; www.havenhive.com. All rights reserved.</h2>
+    </div>
+</footer>
+<script src="../assets/js/view-meeting.js"></script>
+</body>
+</html>
