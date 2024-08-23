@@ -13,13 +13,12 @@ public class Room {
     public Room() {
     }
 
-    public Room(int roomID, String roomType, int seatingCapacity, List<Amenity> amenities) {
+    public Room(int roomID, String roomType, int seatingCapacity) {
         this.roomID = roomID;
         this.roomType = roomType;
         this.seatingCapacity = seatingCapacity;
         this.amenities = new ArrayList<>();
         addDefaultAmenities();
-
     }
 
     public int getRoomID() {

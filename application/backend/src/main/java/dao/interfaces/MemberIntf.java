@@ -12,6 +12,4 @@ public interface MemberIntf {
 
     public List<Meeting> getMeeting(int id) throws EntityNotFoundException, InvalidCredentialsException;
 
-
-
 }

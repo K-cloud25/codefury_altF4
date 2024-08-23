@@ -53,10 +53,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public int createUser(int empID, String empName, String email, String phone, int empType, String passwd) {
+        int newEmployeeID = -1;
         try (Connection connection = DatabaseConnector.getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO employee (Name, Email, Phone, Credits, Role) VALUES (?, ?, ?, ?, ?)")) {
+             PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                     "INSERT INTO employee (empName, email, phone, empType, passwd) VALUES (?, ?, ?, ?, ?)"
+                     , PreparedStatement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1,empName);
             preparedStatement.setString(2, email);
@@ -65,10 +68,24 @@ public class EmployeeDaoImpl implements EmployeeDao {
             preparedStatement.setString(5, passwd);
 
             preparedStatement.executeUpdate();
+
+            ResultSet newEmpIDResultSet = preparedStatement.getGeneratedKeys();
+            newEmpIDResultSet.next();
+            newEmployeeID = newEmpIDResultSet.getInt(1);
+
+            if ( empType == 2 && newEmployeeID != -1){
+
+                PreparedStatement addCredits = connection.prepareStatement("INSERT INTO credit VALUES (?, 2000)");
+                addCredits.setInt(1, newEmployeeID);
+                addCredits.executeUpdate();
+
+            }
+
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new RuntimeException();
         }
-        return -1;
+        return newEmployeeID;
     }
 
     @Override

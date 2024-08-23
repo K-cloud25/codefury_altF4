@@ -42,7 +42,7 @@
       7. - [X] Add User to Meeting Obj
 ---
 4. Member
-   1. - [ ] Get My Meetings
+   1. - [X] Get My Meetings
       1. - [X] Validate User
-      2. - [ ] Fetch User Rooms 
-      3. - [ ] Return Room.
+      2. - [X] Fetch User Rooms 
+      3. - [X] Return Room.

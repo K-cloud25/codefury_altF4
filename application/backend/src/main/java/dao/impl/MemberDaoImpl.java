@@ -37,12 +37,14 @@ public class MemberDaoImpl implements MemberIntf {
         int costOfMeeting;
         String description;
 
-        String sql = "SELECT m.meetingID, m.roomID, m.managerID, m.startTime, m.endTime, m.costOfMeeting, m.descrip " +
-                "FROM meeting m " +
-                "JOIN " +
-                "mapMeetingUser mmu ON m.meetingID = mmu.meetingID" +
-                "WHERE " +
-                "mmu.empID = ?;";
+        String sql =
+                """
+            SELECT m.meetingID, m.roomID, m.managerID, m.startTime, m.endTime, m.costOfMeeting, m.descrip\s
+            FROM meeting m\s
+            JOIN\s
+            	mapMeetingUser mmu ON m.meetingID = mmu.meetingID
+            WHERE mmu.empID = ?;
+    """;
 
         try {
             ps = conn.prepareStatement(sql);
@@ -60,7 +62,7 @@ public class MemberDaoImpl implements MemberIntf {
                 meetings.add(new Meeting(meetingId,roomId,managerId,startTime,endTime,costOfMeeting,description));
             }
         } catch (SQLException e) {
-            Log.writeToError("Error fetching meetings based on memberid");
+            Log.writeToError("Error fetching meetings based on memberid : " + e.getMessage() + " : " + e.getSQLState());
             throw new EntityNotFoundException("No meetings found for memberid");
         }
 

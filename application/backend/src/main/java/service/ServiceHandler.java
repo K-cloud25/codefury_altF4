@@ -7,7 +7,6 @@ import models.entities.Amenity;
 import models.entities.Meeting;
 import models.entities.Room;
 import models.users.Employee;
-import models.users.Member;
 import util.modelutil.EmployeeUtils;
 import util.modelutil.InputValidator;
 import util.singleton.*;
@@ -15,10 +14,7 @@ import util.singleton.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 // Service Handler Will Interact with a UI and considers that the UI can operate on Java Based Objects.
 
@@ -27,6 +23,7 @@ public class ServiceHandler {
     private EmployeeDao employeeDao;
     private MeetingDaoIntf meetingDao;
     private RoomDaoIntf roomDao;
+    private MemberIntf memberDao;
 
     Connection cnx = null;
 
@@ -35,7 +32,7 @@ public class ServiceHandler {
         employeeDao = EmployeeFactory.getEmployeeDao();
         meetingDao = MeetingFactory.getMeetingDao();
         roomDao = RoomFactory.getRoomDao();
-
+        memberDao = MemberFactory.getMemberDao();
     }
 
     private boolean employeeValidation( Employee frontendSentEmployee, Employee backendEmployee ){
@@ -100,18 +97,29 @@ public class ServiceHandler {
     // Admin Functions
 
     // Admin : Add Room
-    public Room addRoom(Employee registeringEmp, String roomType, int seatingCapacity, List<Amenity> adminSetAmenities){
+    public Room addRoom(Employee registeringEmp, String roomType, int seatingCapacity){
 
-        if ( validateEmployee(registeringEmp, 1) ){
+        if ( !validateEmployee(registeringEmp, 1) ){
+            Log.writeToLog("Unauthorized User Trying to add Resource");
+            return null;
+        }
+
+        try {
+            InputValidator.isValidRoomType(roomType);
+            if ( seatingCapacity < 0 ){
+                throw  new ValidationFailedException("No of Seats in a room Cannot be Zero");
+            }
+        }
+        catch (ValidationFailedException e){
+            Log.writeToLog(e.getMessage());
             return null;
         }
 
         //Creating A Dummy Object For Insertion.
-        Room dummyRoom = new Room(-1, roomType, seatingCapacity, adminSetAmenities);
+        Room dummyRoom = new Room(-1, roomType, seatingCapacity);
 
         // Dao Impl for Adding Room Information to be added to DB
         int roomID = roomDao.createRoom(dummyRoom);
-
         // Updating with new Room ID
         dummyRoom.setRoomID(roomID);
         Log.writeToLog("Room " + dummyRoom + " created by " + registeringEmp );
@@ -124,7 +132,7 @@ public class ServiceHandler {
     public Employee addEmployee(Employee registeringEmp, Employee newEmployeeObj){
 
         // Admin Level Validation
-        if ( validateEmployee(registeringEmp, 1) ){
+        if ( !validateEmployee(registeringEmp, 1)){
             return null;
         }
 
@@ -152,7 +160,7 @@ public class ServiceHandler {
     // Admin : Update user
     public Room updateRoom(Employee registeringEmp, Room room){
 
-        if ( validateEmployee(registeringEmp, 1) ){
+        if ( !validateEmployee(registeringEmp, 1) ){
             return null;
         }
 
@@ -175,8 +183,11 @@ public class ServiceHandler {
             return null;
         }
 
-        roomDao.updateRoom(room, backendUpdateRoom.getRoomID());
-        Log.writeToLog("Room " + room + " updated by " + registeringEmp );
+        if (roomDao.updateRoom(room, backendUpdateRoom.getRoomID())){
+            Log.writeToLog("Room " + room + " updated by " + registeringEmp );
+        }else{
+            Log.writeToError("Room not updated Update Failed for Room : " + room);
+        }
 
         return room;
 
@@ -186,7 +197,7 @@ public class ServiceHandler {
     public List<Room> getAvailableRooms(Employee requestingEmployee, List<LocalDateTime> rangeOfTime){
 
         // Verify If Employee is of Type Member
-        if ( validateEmployee(requestingEmployee, 2) ){
+        if (!validateEmployee(requestingEmployee, 2) ){
             return null;
         }
 
@@ -268,13 +279,23 @@ public class ServiceHandler {
     }
 
     // Member : GetMyRooms
-    // TODO: Finish Implementation
     public List<Meeting> getMeetings( Employee member ){
 
         // Validate user
-        if (validateEmployee(member, 3)){
+        if (!validateEmployee(member, 3)){
+            Log.writeToLog("Unauthorized User trying to access restricted resource");
             return null;
         }
+
+        try {
+            return memberDao.getMeeting(member.getEmpID());
+
+        } catch (EntityNotFoundException e) {
+            Log.writeToError("No Such Employee Found: Id " + member.getEmpID() );
+        } catch (InvalidCredentialsException e) {
+            Log.writeToError("Invalid Credentials for user " + member);
+        }
+
 
         return null;
 
@@ -284,6 +305,7 @@ public class ServiceHandler {
         employeeDao = null;
         meetingDao = null;
         roomDao = null;
+        memberDao = null;
         cnx = null;
         DatabaseConnector.closeConnection();
     }

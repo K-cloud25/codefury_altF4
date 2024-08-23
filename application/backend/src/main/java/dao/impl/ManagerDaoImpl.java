@@ -56,7 +56,7 @@ public class ManagerDaoImpl implements ManagerIntf {
                 int roomId = rs.getInt("roomID");
                 String roomType = rs.getString("roomType");
                 int seatinCapacity = rs.getInt("seatinCapacity");
-                rooms.add(new Room(roomId,roomType,seatinCapacity,null));
+                rooms.add(new Room(roomId,roomType,seatinCapacity));
             }
         } catch (SQLException e) {
             Log.writeToError("Failed to fetch rooms");
