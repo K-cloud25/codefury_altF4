@@ -7,7 +7,6 @@ import com.altfregistry.model.users.Admin;
 import com.altfregistry.model.users.Employee;
 import com.altfregistry.model.users.Manager;
 import com.altfregistry.model.users.Member;
-import com.altfregistry.singleton.Log;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

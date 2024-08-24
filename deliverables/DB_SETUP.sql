@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS employee (
 
 CREATE TABLE IF NOT EXISTS credit (
 	empID INT PRIMARY KEY,			-- Should only map to user with Manager Type 
-    credit INT NOT NULL DEFAULT 2000
+    credit INT NOT NULL DEFAULT 2000,
+    FOREIGN KEY ( empID ) REFERENCES employee( empID )
 );
 
 CREATE TABLE IF NOT EXISTS room (
@@ -41,11 +42,15 @@ CREATE TABLE IF NOT EXISTS meeting (
     startTime DATETIME, 	-- DATE TIME -- YYYY-MM-DD HH:MI:SSproduct
     endTime DATETIME,	-- DATE TIME -- YYYY-MM-DD HH:MI:SS
     costOfMeeting INT NOT NULL,
-    descrip VARCHAR(255) NOT NULL -- {pro:0,wifi:0,con:0,white:0,water:0,tv:0,coff:0}
+    descrip VARCHAR(255) NOT NULL, -- {pro:0,wifi:0,con:0,white:0,water:0,tv:0,coff:0}
+    FOREIGN KEY ( roomID ) REFERENCES room ( roomID ),
+    FOREIGN KEY ( managerID ) REFERENCES employee ( empID )
 );
 
 CREATE TABLE IF NOT EXISTS mapMeetingUser(
 	empID int,
-    meetingID int
+    meetingID int,
+    FOREIGN KEY ( empID ) REFERENCES employee ( empID ),
+    FOREIGN KEY ( meetingID ) REFERENCES meeting ( meetingID )
 );
 
