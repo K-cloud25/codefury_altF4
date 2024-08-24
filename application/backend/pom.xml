@@ -14,6 +14,8 @@
         <module>daoModule</module>
         <module>serviceModule</module>
         <module>applicationExceptionsModule</module>
+        <module>Main</module>
+
     </modules>
 
     <properties>
