@@ -1,0 +1,21 @@
+/* Styles the footer with background color, text color, and padding */
+footer {
+    background: #666;
+    color: rgb(255, 255, 255);
+    padding: 22px 10px;
+    margin-top: 50px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Styles secondary headings with size and padding */
+.h-fourth {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Centers text */
+.center {
+    text-align: center;
+}

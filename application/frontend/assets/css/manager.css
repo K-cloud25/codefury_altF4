@@ -15,60 +15,6 @@ html {
     background-color: #f5f5f5;
 }
 
-/* Style for the navigation bar: fixed at the top, with a background color and shadow */
-.navbar {
-    background-color: #f8f9fa;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style for the navigation bar heading */
-.navbar h3 {
-    font-size: 30px;
-    color: #333;
-    font-family: "Oswald", sans-serif;
-    font-weight: 600;
-}
-
-/* Flexbox container for navigation links */
-.nav-links {
-    display: flex;
-    font-family: 'Oswald', sans-serif;
-}
-
-/* Style for navigation list items: removes default styling and sets margin */
-.nav-links li {
-    list-style: none;
-    font-size: 1.2rem;
-    margin-left: 20px;
-}
-
-/* Style for navigation links: padding, border-radius, and transition effects */
-.nav-links li a {
-    color: black;
-    display: block;
-    padding: 5px 10px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.6s ease;
-}
-
-/* Hover effects for navigation links: color change and scaling */
-.nav-links li a:hover {
-    color: white;
-    background-color: black;
-    transform: scale(1.08);
-}
-
 /* Flexbox container for main content section */
 .content-section {
     display: flex;
@@ -239,27 +185,15 @@ hr {
     z-index: 1;
 }
 
-/* Styles the footer with background color, text color, and padding */
-footer {
-    background: #666;
-    color: rgb(255, 255, 255);
-    padding: 22px 10px;
-    margin-top: 50px;
-    font-family: 'Raleway', sans-serif;
+.image-content {
+    flex: 1;
+    background-image: url(../jpg/employee.png);
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 90px);
+    background-repeat: no-repeat;
 }
 
-/* Styles secondary headings with size and padding */
-.h-fourth {
-    font-size: 1rem;
-    padding: 10px;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
-}
-
-/* Centers text */
-.center {
-    text-align: center;
-}
 
 /* Media queries for responsive design */
 
