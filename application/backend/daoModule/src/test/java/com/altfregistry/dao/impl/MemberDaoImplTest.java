@@ -17,8 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MemberDaoImplTest {
 
@@ -75,6 +74,52 @@ public class MemberDaoImplTest {
 
     @Test
     @DisplayName("Member dao test: Meeting found")
+    public void testFindById() throws EntityNotFoundException {
+
+        List<Meeting> meetings = new ArrayList<>();
+
+
+        String sql =
+                """
+            SELECT m.meetingID, m.roomID, m.managerID, m.startTime, m.endTime, m.costOfMeeting, m.descrip\s
+            FROM meeting m\s
+            JOIN\s
+            	mapMeetingUser mmu ON m.meetingID = mmu.meetingID
+            WHERE mmu.empID = ?;
+    """;
+
+        try {
+            int meetingId;
+            int roomId;
+            int managerId;
+            LocalDateTime startTime;
+            LocalDateTime endTime;
+            int costOfMeeting;
+            String description;
+            psMeeting = conn.prepareStatement(sql);
+            psMeeting.setInt(1, falseEmployeeId);
+            rs = psMeeting.executeQuery();
+
+            while (rs.next()) {
+                meetingId = rs.getInt("meetingID");
+                roomId = rs.getInt("roomID");
+                managerId = rs.getInt("managerID");
+                startTime = rs.getObject("startTime", LocalDateTime.class);
+                endTime = rs.getObject("endTime", LocalDateTime.class);
+                costOfMeeting = rs.getInt("costOfMeeting");
+                description = rs.getString("descrip");
+                meetings.add(new Meeting(meetingId,roomId,managerId,startTime,endTime,costOfMeeting,description));
+            }
+        } catch (SQLException e) {
+            throw new EntityNotFoundException("No meetings found for memberid");
+        }
+        List<Meeting> trueMeetings = Arrays.asList(new Meeting(meetingId,roomId,employeeId,startTime,endTime,costOfMeeting,description));
+        assertNotEquals(trueMeetings,meetings);
+
+    }
+
+    @Test
+    @DisplayName("Member dao test: Meeting found")
     public void testFindById2() throws EntityNotFoundException {
         List<Meeting> meetings = new ArrayList<>();
 
@@ -117,11 +162,12 @@ public class MemberDaoImplTest {
         assertEquals(trueMeetings,meetings);
     }
 
+
+
     @AfterAll
     public static void destroy(){
         // removing pointer from instance for cleanup;
         System.gc();    // Hinting at required for cleanup by garbage collector
         dao = null;
     }
-
 }
