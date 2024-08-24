@@ -49,7 +49,7 @@ Make sure you have the following installed:
     mvn clean install
     ```
 
-### Running the Project
+### Running the Project [ backend - server ]
 
 To run specific modules or the entire project, you can use Maven commands from the root project directory. For example:
 
@@ -60,6 +60,12 @@ To run specific modules or the entire project, you can use Maven commands from t
     ```
 
   Replace `module-a` with the desired module name and ensure the `exec-maven-plugin` is configured in that module's `pom.xml`.
+
+### Running the Project [ frontend - html,css,javascript ]
+
+To check the hmtl pages it is recommeded to use the live server plugin inside VS code.
+
+(Live Server)[https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer] : Link to Live Server Plugin
 
 ### Running Tests
 
