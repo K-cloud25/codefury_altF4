@@ -96,7 +96,7 @@ public class ServiceHandlerTest {
     @DisplayName("Service Handler Test : get meetings")
     public void testCaseG(){
 
-        Member memeber = new Member(3, "Memeber", "memeber@gmail.com", "9845689754", 3, "member");
+        Member memeber = new Member(3, "Member", "memeber@gmail.com", "9845689754", 3, "member");
 
         List<Meeting> listOfMeetings = serviceHandler.getMeetings(memeber);
         assertNotNull(listOfMeetings);

@@ -64,7 +64,7 @@ public class MemberDaoImpl implements MemberIntf {
             Log.writeToError("Error fetching meetings based on memberid : " + e.getMessage() + " : " + e.getSQLState());
             throw new EntityNotFoundException("No meetings found for memberid");
         }
-
+        DatabaseConnector.closeConnection();
         Log.writeToLog("Meetings fetched successfully");
         return meetings;
 

@@ -54,3 +54,22 @@ CREATE TABLE IF NOT EXISTS mapMeetingUser(
     FOREIGN KEY ( meetingID ) REFERENCES meeting ( meetingID )
 );
 
+-- dummy data
+INSERT INTO employee 
+VALUES
+	( 1, "Admin", "admin@gmail.com", "9845689754", 1, "admin" ),
+    ( 2, "Manager", "manager@gmail.com", "9845689754", 2, "manager" ),
+    ( 3, "Member" , "member@gmail.com", "9845689754", 3, "member" )
+;
+
+INSERT INTO room
+VALUE ( 1, "classroomtraining", 30);
+
+INSERT INTO credit
+VALUE ( 2, 2000 ); 
+
+INSERT INTO meeting
+VALUE ( 3532, 1, 2, "2024-08-25 09:00:00", "2024-08-25 10:00:00", 40, "MeeetingDescrip" );
+
+INSERT INTO mapmeetinguser
+VALUE ( 3, 3532 );
