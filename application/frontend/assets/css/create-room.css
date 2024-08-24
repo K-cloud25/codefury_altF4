@@ -1,0 +1,173 @@
+body {
+    background-color: #f0f0f0;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the navigation bar */
+.navbar {
+    background-color: #f8f9fa;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    width: 94.5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the navigation bar heading */
+.navbar h3 {
+    font-size: 30px;
+    color: #333;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+}
+
+/* Flexbox container for navigation links */
+.nav-links {
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Style for navigation list items */
+.nav-links li {
+    list-style: none;
+    font-size: 1.2rem;
+    margin-left: 20px;
+}
+
+/* Style for navigation links */
+.nav-links li a {
+    color: black;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.6s ease;
+}
+
+/* Hover effects for navigation links */
+.nav-links li a:hover {
+    color: white;
+    background-color: black;
+    transform: scale(1.08);
+}
+.lightblack-highlight {
+    color: #333;
+}
+
+.grey-highlight {
+    color: #666;
+}
+
+
+
+
+.form-container {
+    background-color: white;
+    padding-top: 250px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 0 auto; /* Center the form container horizontally */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.amenities-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.amenities-table th, 
+.amenities-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.amenities-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+
+
+
+
+/* Styles the footer */
+footer {
+    background: #666;
+    color: rgb(255, 255, 255);
+    padding: 22px 10px;
+    margin-top: 280px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.h-fourth {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+
+
+
+
