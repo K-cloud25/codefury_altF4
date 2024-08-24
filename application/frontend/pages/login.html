@@ -3,51 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./../assets/css/LoginStyles.css">
+    <title>Book Meeting Room - AltF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=New+Amsterdam&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
+<nav class="navbar">
+    <h3><span class="lightblack-highlight">Haven </span><span class="grey-highlight">Hive</span></h3>
 
-    <nav class="navbar">
-        <h3><span class="lightblack-highlight">Haven</span><span class="grey-highlight"> Hive</span></h3>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <!-- <li><a href="../pages/login.html">Log Out</a></li> -->
+    </ul>
+</nav>
 
+<main id="main" >
     <div class="login-container">
-        <!-- <div class="logo">
-            <img src="your-logo.png" alt="Logo">
-        </div> -->
-        <h1>Login</h1>
-        <p>Select your user type to continue</p>
         
-        <div class="button-group">
-            <input type="radio" id="member" name="user-type" value="Member" hidden>
-            <label for="member" class="radio-button">Member</label>
-            
-            <input type="radio" id="admin" name="user-type" value="Admin" hidden>
-            <label for="admin" class="radio-button">Admin</label>
-            
-            <input type="radio" id="manager" name="user-type" value="Manager" hidden>
-            <label for="manager" class="radio-button">Manager</label>
-        </div>
+        <h1>Login</h1>
+        
         
         <div class="divider">
-            <!-- <span>OR CONTINUE WITH</span> -->
+            
         </div>
         
         <form id="login-form">
+            
+            <div class="input-group">
+                <label for="userId">User Id</label>
+                <input type="userId" id="userId" placeholder="userId" required>
+                
+            </div>
             <div class="input-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="m@example.com" required>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" required>
-                <a href="#" class="forgot-password">Forgot password?</a>
-            </div>
+            
             <button type="submit" class="login-button">Login</button>
         </form>
     </div>
-    <script src="../assets/js/login.js"></script>
+    
+</main>
+
+<footer>
+    <div class="center">
+        <h2 class="h-fourth">Email us at: havenhive-support@gmail.com</h2>
+        <h2 class="h-fourth">Call us at: +91 99999-XXXXX</h2>
+        <h2 class="h-fourth">Copyright &copy; www.havenhive.com. All rights reserved.</h2>
+    </div>
+</footer>
+
+<script src="../assets/js/login.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all room cards
+        const roomCards = document.querySelectorAll('.room-card');
+
+        roomCards.forEach(card => {
+            const decreaseBtn = card.querySelector('.decrease-btn');
+            const increaseBtn = card.querySelector('.increase-btn');
+            const currentCapacityElem = card.querySelector('.current-capacity');
+            const editBtn = card.querySelector('.edit-btn');
+            const capacityValueElem = card.querySelector('.capacity-value');
+
+            decreaseBtn.addEventListener('click', () => {
+                let currentCapacity = parseInt(currentCapacityElem.textContent);
+                if (currentCapacity > 1) { // Ensure capacity doesn't go below 1
+                    currentCapacityElem.textContent = currentCapacity - 1;
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                let currentCapacity = parseInt(currentCapacityElem.textContent);
+                currentCapacityElem.textContent = currentCapacity + 1;
+            });
+
+            editBtn.addEventListener('click', () => {
+                const newCapacity = currentCapacityElem.textContent;
+                capacityValueElem.textContent = newCapacity;
+                alert(`You have edited the room`);
+            });
+        });
+    });
+</script>
 </body>
 </html>

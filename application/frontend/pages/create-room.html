@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Meeting Room - AltF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=New+Amsterdam&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/create-room.css">
+</head>
+<body>
+<nav class="navbar">
+    <h3><span class="lightblack-highlight">Haven </span><span class="grey-highlight">Hive</span></h3>
+
+    <ul class="nav-links">
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/login.html">Log Out</a></li>
+    </ul>
+</nav>
+
+<h2>Create Room</h2>
+
+<div class="form-container">
+    <h2>Create Room</h2>
+    <form id="booking-form">
+        <div class="form-group">
+            <label for="name">Name*</label>
+            <input type="text" id="name" placeholder="Enter name" required>
+        </div>
+        <div class="form-group">
+            <label for="seating-capacity">Seating Capacity*</label>
+            <input type="number" id="seating-capacity" placeholder="Enter seating capacity" required>
+        </div>
+        <div class="form-group">
+            <label for="hours">No. Of Hours*</label>
+            <input type="number" id="hours" placeholder="Enter No. Of Hours" required>
+        </div>
+        <div class="form-group">
+            <label>Amenities Available, Charges Per Hour*</label>
+            <table class="amenities-table">
+                <thead>
+                    <tr>
+                        <th>Amenity</th>
+                        <th>Cost per Hour</th>
+                        <th>Checkbox</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="icon">📽️</span> Projector</td>
+                        <td>5 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="Projector"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📶</span> Wi-Fi Connection</td>
+                        <td>10 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="WiFi"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📞</span> Conference Call Facility</td>
+                        <td>15 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="ConferenceCall"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📋</span> Whiteboard</td>
+                        <td>5 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="Whiteboard"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">💧</span> Water Dispenser</td>
+                        <td>5 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="WaterDispenser"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📺</span> Television</td>
+                        <td>10 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="Television"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">☕</span> Coffee Machine</td>
+                        <td>10 Credits</td>
+                        <td><input type="checkbox" name="amenities" value="CoffeeMachine"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <p>Remaining Credits: <span id="remaining-credits">2000</span></p>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-save">Save</button>
+            <button type="button" class="btn btn-cancel">Cancel</button>
+        </div>
+    </form>
+</div>
+
+
+
+<footer>
+    <div class="center">
+        <h2 class="h-fourth">Email us at: havenhive-support@gmail.com</h2>
+        <h2 class="h-fourth">Call us at: +91 99999-XXXXX</h2>
+        <h2 class="h-fourth">Copyright &copy; www.havenhive.com. All rights reserved.</h2>
+    </div>
+</footer>
+
+
+</body>
+</html>
