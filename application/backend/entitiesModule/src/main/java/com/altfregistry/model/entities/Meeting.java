@@ -23,8 +23,8 @@ public class Meeting {
         this.roomID = roomID;
         this.managerID = managerID;
         //parse startTime and endTime and convert into  "yyyy-MM-dd HH:mm:ss" format
-        this.startTime = LocalDateTime.parse(startTime);
-        this.endTime = LocalDateTime.parse(endTime);
+        this.startTime = LocalDateTime.parse(startTime, DateTimeFormatter.ofPattern(dateTimeFormat));
+        this.endTime = LocalDateTime.parse(endTime, DateTimeFormatter.ofPattern(dateTimeFormat));
         this.costOfMeeting = costOfMeeting;
         this.description = description;
     }
