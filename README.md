@@ -28,6 +28,7 @@ Make sure you have the following installed:
 - [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (version 17 or later)
 - [Maven](https://maven.apache.org/download.cgi) (version 3.9.8 or later)
 - [IDE](https://www.jetbrains.com/idea/) (e.g., IntelliJ IDEA, Eclipse)
+- [MySQL](https://dev.mysql.com/downloads/installer/) (version 8.3.0 or later)
 
 ### Installation
 
@@ -43,7 +44,13 @@ Make sure you have the following installed:
     cd application/backend
     ```
 
-3. Build the entire project and all modules:
+3. Run MySQL script provided sql script:
+
+    ```bash
+    mysql -u username -p database_name < /path/to/your/script.sql
+    ```
+
+5. Build the entire project and all modules:
 
     ```bash
     mvn clean install
