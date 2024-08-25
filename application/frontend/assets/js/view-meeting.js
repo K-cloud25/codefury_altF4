@@ -2,8 +2,8 @@ const timetableData = {
     "January 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA] </td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -13,8 +13,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -23,9 +23,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -33,8 +33,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -54,8 +54,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -65,7 +65,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -75,14 +75,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -94,8 +94,8 @@ const timetableData = {
     "February 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -105,8 +105,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -115,9 +115,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -125,8 +125,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -146,8 +146,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -157,7 +157,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -167,14 +167,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -186,8 +186,8 @@ const timetableData = {
     "March 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -197,8 +197,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -207,9 +207,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -217,8 +217,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -238,8 +238,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -249,7 +249,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -259,14 +259,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -278,8 +278,8 @@ const timetableData = {
     "April 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -289,8 +289,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -299,9 +299,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -309,8 +309,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business(Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -330,8 +330,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -341,7 +341,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -351,14 +351,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -370,8 +370,8 @@ const timetableData = {
     "May 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -381,8 +381,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -391,9 +391,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -401,8 +401,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector) ">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -422,8 +422,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -433,7 +433,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -443,14 +443,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -462,8 +462,8 @@ const timetableData = {
     "June 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -473,8 +473,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -483,9 +483,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -493,8 +493,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -514,8 +514,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -525,7 +525,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -535,14 +535,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -554,8 +554,8 @@ const timetableData = {
     "July 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -565,8 +565,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -575,9 +575,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -585,8 +585,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -606,8 +606,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -617,7 +617,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -627,14 +627,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -646,8 +646,8 @@ const timetableData = {
     "August 2024": `
         <tr>
             <td class="time">9:00 AM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueB]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -657,8 +657,8 @@ const timetableData = {
         <tr>
             <td class="time">10:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -667,9 +667,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -677,8 +677,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -698,8 +698,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -709,7 +709,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -719,14 +719,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -760,9 +760,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -770,8 +770,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -791,8 +791,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -802,7 +802,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -812,14 +812,14 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -852,9 +852,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -862,8 +862,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -883,8 +883,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -894,7 +894,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -905,13 +905,13 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -944,9 +944,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -954,8 +954,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -975,8 +975,8 @@ const timetableData = {
             <td class="time">2:00 PM</td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -986,7 +986,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -997,13 +997,13 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -1036,9 +1036,9 @@ const timetableData = {
         <tr>
             <td class="time">11:00 AM</td>
             <td></td>
-            <td class="cs335 blue lab" data-tooltip="Software Engineering & Software Process">CS335 [Lab]</td>
-            <td class="md352 green" data-tooltip="Multimedia Production & Management">MD352 [Kairos]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [CH]</td>
+            <td class="RoomA blue lab" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
+            <td class="RoomC green" data-tooltip="Conference Call  By Manager C (Conference Call Facility)">RoomC [VenueC]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -1046,8 +1046,8 @@ const timetableData = {
         <tr>
             <td class="time">12:00 PM</td>
             <td></td>
-            <td class="md303 navy" data-tooltip="Media & Globalisation">MD303 [CS2]</td>
-            <td class="md313 red" data-tooltip="Special Topic: Multiculturalism & Nationalism">MD313 [Iontas]</td>
+            <td class="RoomA navy" data-tooltip="Business by Manager D (Projector)">RoomA [VenueA]</td>
+            <td class="RoomC red" data-tooltip="Business by Manager D (Projector)">RoomC [VenueC]</td>
             <td></td>
             <td></td>
             <td></td>
@@ -1068,8 +1068,8 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs426 purple" data-tooltip="Computer Graphics">CS426 [CS2]</td>
-            <td class="cs240 orange" data-tooltip="Operating Systems">CS240 [TH1]</td>
+            <td class="RoomB purple" data-tooltip="Online Training by Manager B (Wifi & Projector)">RoomB [VenueA]</td>
+            <td class="RoomD orange" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
         </tr>
@@ -1079,7 +1079,7 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
         </tr>
@@ -1089,13 +1089,13 @@ const timetableData = {
             <td></td>
             <td></td>
             <td></td>
-            <td class="cs240 orange lab" data-tooltip="Operating Systems">CS240 [Lab]</td>
+            <td class="RoomD orange lab" data-tooltip="Business by Manager D (Projector)">RoomD [VenueD]</td>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td class="time">5:00 PM</td>
-            <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [TH1]</td>
+            <td class="RoomA blue" data-tooltip="Class Room Training by ManagerA (White Board & Projector)">RoomA [VenueA]</td>
             <td></td>
             <td></td>
             <td></td>
