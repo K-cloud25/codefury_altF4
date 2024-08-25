@@ -65,7 +65,7 @@ To run specific modules or the entire project, you can use Maven commands from t
 
 To check the hmtl pages it is recommeded to use the live server plugin inside VS code.
 
-(Live Server)[https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer] : Link to Live Server Plugin
+[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) : Link to Live Server Plugin
 
 ### Running Tests
 
